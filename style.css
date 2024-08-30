@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média Aritmética</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #00796b;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #004d40;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 77, 64, 0.5);
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Média</h1>
+        <input type="number" id="num1" placeholder="Digite o 1º número" required>
+        <input type="number" id="num2" placeholder="Digite o 2º número" required>
+        <input type="number" id="num3" placeholder="Digite o 3º número" required>
+        <input type="number" id="num4" placeholder="Digite o 4º número" required>
+        <button onclick="calcularMedia()">Calcular Média</button>
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const num3 = parseFloat(document.getElementById('num3').value);
+            const num4 = parseFloat(document.getElementById('num4').value);
+
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3) || isNaN(num4)) {
+                alert('Por favor, preencha todos os campos com números válidos.');
+                return;
+            }
+
+            const media = (num1 + num2 + num3 + num4) / 4;
+            document.getElementById('resultado').innerText = `A média é: ${media.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
